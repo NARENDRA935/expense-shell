@@ -1,4 +1,4 @@
-log_file =/tmp/expense.log
+log_file=/tmp/expense.log
 mysql_passwd=$1
 echo -e  "\e[32m disable nodejs\e[0m"
 dnf module disable nodejs -y &>>log_file
