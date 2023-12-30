@@ -1,8 +1,6 @@
-log_file=/tmp/expense.log
 mysql_passwd=$1
-head() {
-    echo -e "\e[36m$1\e[0"
-}
+component=backend
+source common.sh
 head "disable nodejs"
 dnf module disable nodejs -y &>>log_file
 echo $?
@@ -18,21 +16,8 @@ echo $?
 head "adding application user"
 useradd expense &>>log_file
 echo $?
-head "remove the existing app content"
-rm -rf /app &>>log_file
-echo $?
-head "creating  app directory"
-mkdir /app &>>log_file
-echo $?
-head "download the application content"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>log_file
-echo $?
-head "change the app directory"
-cd /app &>>log_file
-echo $?
-head "extracting the application content"
-unzip /tmp/backend.zip &>>log_file
-echo $?
+app_prereq "/app"
+
 head "download the application dependencies"
 npm install &>>log_file
 echo $?
