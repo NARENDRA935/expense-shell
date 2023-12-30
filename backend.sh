@@ -1,31 +1,31 @@
-echo disable nodejs
+echo -e "\e[32m disable nodejs\e[0m"
 dnf module disable nodejs -y
-echo enable nodejs verson
+echo -e "\e[32m enable nodejs verson\e[0m"
 dnf module enable nodejs:18 -y
-echo install nodejs
+echo -e "\e[32m install nodejs\e[0m"
 dnf install nodejs -y
-echo configure the backend services
+echo -e "\e[32m -e "\e[32m configure the backend services\e[0m"
 cp backend.service /etc/systemd/system/backend.service
-echo adding application user
+echo -e "\e[32m adding application user\e[0m"
 useradd expense
-echo remove the existing app content
+echo -e "\e[32m remove the existing app content\e[0m"
 rm -rf /app
-echo creating a app directory
+echo -e "\e[32m creating a app directory\e[0m"
 mkdir /app
-echo download the application content
+echo -e "\e[32m download the application content\e[0m"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip
-echo change the app directory
+echo -e "\e[32m change the app directory\e[0m"
 cd /app
-echo extracting the application content
+echo -e "\e[32m extracting the application content\e[0m"
 unzip /tmp/backend.zip
-echo downloadthe application dependancies
+echo -e "\e[32m downloadthe application dependancies\e[0m"
 npm install
-echo reload the systemD and restart the backend
+echo -e "\e[32m reload the systemD and restart the backend\e[0m"
 
 systemctl daemon-reload
 systemctl enable backend
 systemctl restart backend
-echo install mysql client
+echo -e "\e[32m install mysql client\e[0m"
 dnf install mysql -y
-echo  load schema
+echo -e "\e[32m  load schema\e[0m"
 mysql -h mysql-dev.narendrat.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
