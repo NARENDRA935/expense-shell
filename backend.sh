@@ -1,6 +1,6 @@
 log_file=/tmp/expense.log
 mysql_passwd=$1
-head(){
+head() {
     echo -e "\e[32m"$1\e[0"
 }
 head "disable nodejs"
