@@ -1,6 +1,6 @@
-echo -e  "\e[32 disable nodejs\e[0m"
+echo -e  "\e[32disable nodejs\e[0m"
 dnf module disable nodejs -y
-echo -e  "\e[32 enable nodejs version\e[0m"
+echo -e  "\e[32enable nodejs version\e[0m"
 dnf module enable nodejs:18 -y
 echo install nodejs
 dnf install nodejs -y
