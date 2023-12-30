@@ -1,4 +1,5 @@
 log_file =/tmp/expense.log
+mysql_passwd=$1
 echo -e  "\e[32m disable nodejs\e[0m"
 dnf module disable nodejs -y &>>log_file
 echo -e  "\e[32m enable nodejs version\e[0m"
@@ -29,4 +30,4 @@ systemctl restart backend &>>log_file
 echo -e "\e[32m install mysql client\e[0m"
 dnf install mysql -y &>>log_file
 echo -e "\e[32m  load schema\e[0m"
-mysql -h mysql-dev.narendrat.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>log_file
+mysql -h mysql-dev.narendrat.online -uroot -p${mysql_passwd} < /app/schema/backend.sql &>>log_file
