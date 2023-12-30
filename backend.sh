@@ -21,9 +21,9 @@ head "download the application content"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>log_file
 head "change the app directory"
 cd /app &>>log_file
-head " extracting the application content"
+head "extracting the application content"
 unzip /tmp/backend.zip &>>log_file
-head " download the application dependencies"
+head "download the application dependencies"
 npm install &>>log_file
 head "reload the systemD and restart the backend"
 
