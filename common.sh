@@ -14,8 +14,6 @@ mkdir /$1 &>>log_file
 Stat $?
 head "download the application content"
 curl -o /tmp/${component}.zip https://expense-artifacts.s3.amazonaws.com/${component}.zip &>>log_file
-
-
 Stat $?
 head "change the app directory"
 cd $1 &>>log_file

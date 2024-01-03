@@ -25,7 +25,7 @@ if [ $? -ne 0 ]; then
     useradd expense &>>log_file
 fi
 Stat $?
-
+app_prereq "/app"
 head "download the application dependencies"
 npm install &>>log_file
 Stat $?
@@ -36,9 +36,6 @@ systemctl restart backend &>>log_file
 Stat $?
 head "install mysql client"
 dnf install mysql -y &>>log_file
-
 Stat $?
 mysql -h mysql-dev.narendrat.online -uroot -p${mysql_passwd} < /app/schema/backend.sql &>>log_file
-
-
 Stat $?
