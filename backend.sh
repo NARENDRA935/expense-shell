@@ -1,4 +1,7 @@
 mysql_passwd=$1
+if [ -z "$mysq_passwd" ]; then
+  echo "input mysql_password is misssing"
+fi
 component=backend
 source common.sh
 head "disable nodejs"
