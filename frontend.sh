@@ -17,7 +17,7 @@ else
     exit
 fi
 
-app_prereq "/usr/share/nginx/html" &>>log_file
+app_prereq "/usr/share/nginx/html"
 if [ $? -eq 0 ]; then
     echo "sucess"
 else
